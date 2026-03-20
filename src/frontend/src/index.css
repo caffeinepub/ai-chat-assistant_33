@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Light theme - main content area */
+    --background: 0.979 0.005 240;
+    --foreground: 0.18 0.025 240;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.025 240;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.025 240;
+    --primary: 0.55 0.18 260;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.95 0.008 240;
+    --secondary-foreground: 0.28 0.05 240;
+    --muted: 0.95 0.008 240;
+    --muted-foreground: 0.55 0.02 240;
+    --accent: 0.93 0.012 240;
+    --accent-foreground: 0.28 0.05 240;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    --border: 0.92 0.008 240;
+    --input: 0.92 0.008 240;
+    --ring: 0.55 0.18 260;
+    --chart-1: 0.55 0.18 260;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    /* Sidebar dark theme */
+    --sidebar: 0.18 0.025 240;
+    --sidebar-foreground: 0.83 0.015 240;
+    --sidebar-primary: 0.55 0.18 260;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.24 0.03 240;
+    --sidebar-accent-foreground: 0.83 0.015 240;
+    --sidebar-border: 0.27 0.025 240;
+    --sidebar-ring: 0.55 0.18 260;
+    /* Custom chat tokens */
+    --chat-user-bubble: 0.28 0.08 250;
+    --chat-user-text: 1 0 0;
+    --chat-assistant-bubble: 0.95 0.008 240;
+    --chat-assistant-text: 0.18 0.025 240;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Typing indicator animation */
+@keyframes bounce-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+.typing-dot {
+  animation: bounce-dot 1.2s infinite;
+}
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Scrollbar styling */
+.chat-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: oklch(0.85 0.008 240);
+  border-radius: 2px;
+}
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.75 0.015 240);
+}
